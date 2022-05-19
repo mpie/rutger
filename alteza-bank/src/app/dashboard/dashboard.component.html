@@ -1,0 +1,91 @@
+<div class="dashboard container">
+  <div class="accounts-container">
+    <h3>Eigen gegevens</h3>
+    <div class="account-info" *ngIf="user">
+      <div class="account">
+        <span class="account-title">Basisrekening</span>
+        <span class="account-number">{{ this.user.accountNumber }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="account-data-container" *ngIf="user">
+    <h3>Rekeninggegevens</h3>
+
+    <form [formGroup]="form" (ngSubmit)="updateUser()">
+      <mat-form-field appearance="fill">
+        <mat-label>Voorletters</mat-label>
+        <input
+          matInput
+          [(ngModel)]="user.initials"
+          type="text"
+          formControlName="initials"
+          placeholder="Voorletters"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Achternaam</mat-label>
+        <input
+          matInput
+          [(ngModel)]="user.lastname"
+          type="text"
+          formControlName="lastName"
+          placeholder="Achternaam"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          [(ngModel)]="user.email"
+          type="email"
+          formControlName="email"
+          placeholder="rekeninghouder@altezabank.nl"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Straat + nr</mat-label>
+        <input
+          matInput
+          [(ngModel)]="user.street"
+          type="text"
+          formControlName="street"
+          placeholder="Altezaweg 1"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Plaats</mat-label>
+        <input
+          matInput
+          [(ngModel)]="user.city"
+          type="text"
+          formControlName="city"
+          placeholder="Plaatsnaam"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Telefoon</mat-label>
+        <input
+          matInput
+          color="accent"
+          [(ngModel)]="user.phone"
+          type="text"
+          formControlName="phone"
+          placeholder="06 12 34 56 78"
+        />
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit"
+        [disabled]="!form.valid"
+      >
+        Verstuur
+      </button>
+    </form>
+  </div>
+</div>

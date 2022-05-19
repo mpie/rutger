@@ -1,0 +1,51 @@
+$alteza-green: #9dd40d;
+
+.container {
+  width: 1600px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+.header {
+  background: white;
+  background: linear-gradient(180deg, white 0%, #efefef 100%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    img {
+      width: 100px;
+    }
+    .motto {
+      font: 100 14px "Roboto", sans-serif;
+      color: #000000;
+      padding: 3px 0 0 12px;
+    }
+  }
+}
+
+nav {
+  font: 500 14px "Roboto", sans-serif;
+  text-transform: uppercase;
+
+  span + span::before {
+    content: " | ";
+  }
+  a {
+    color: #000000;
+    text-decoration: none;
+    &.selected,
+    &:hover {
+      border-bottom: 1px solid $alteza-green;
+    }
+  }
+}
+
+.hero img {
+  width: 100%;
+  display: block;
+}

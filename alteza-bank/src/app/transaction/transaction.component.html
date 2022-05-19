@@ -1,0 +1,60 @@
+<div class="transactions container">
+  <mat-tab-group mat-align-tabs="start">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div class="account-tab">
+          <div class="account">
+            <span class="account-title">Basisrekening</span>
+            <span class="account-number">{{ user?.accountNumber }}</span>
+          </div>
+          <div class="account-balance">€ {{ user?.balance }}</div>
+        </div>
+      </ng-template>
+
+      <h3>Betaalopdracht</h3>
+      <form [formGroup]="form" (ngSubmit)="addTransaction()">
+        <mat-form-field appearance="fill">
+          <mat-label>Bedrag</mat-label>
+          <input
+            matInput
+            [(ngModel)]="transaction"
+            type="number"
+            formControlName="transaction"
+            placeholder="Bedrag"
+          />
+        </mat-form-field>
+
+        <mat-slide-toggle formControlName="spoed">Spoed</mat-slide-toggle>
+
+        <!-- Removed the from account, since this is already selected in the tab bar -->
+
+        <mat-form-field appearance="fill">
+          <mat-label>Uitvoerdatum</mat-label>
+          <input matInput type="date" formControlName="date" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Naar rekening</mat-label>
+          <mat-select>
+            <mat-option
+              *ngFor="let account of allAccounts"
+              [value]="account.accountNumber"
+            >
+              {{ account.initials }} {{ account.lastname }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="accent"
+          type="submit"
+          [disabled]="!form.valid"
+        >
+          Verstuur
+        </button>
+      </form>
+    </mat-tab>
+    <!-- placeholder for other bank accounts -->
+  </mat-tab-group>
+</div>

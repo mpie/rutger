@@ -1,0 +1,40 @@
+<div class="header container">
+  <div class="logo">
+    <img src="/assets/images/alteza-logo.png" />
+    <span class="motto">Wijzer in bankzaken</span>
+  </div>
+
+  <div class="navigation-settings-container">
+    <nav>
+      <span class="item">
+        <a
+          routerLink="/"
+          routerLinkActive="selected"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >home</a
+        >
+      </span>
+      <span class="item">
+        <a routerLink="/overview" routerLinkActive="selected">overzicht</a>
+      </span>
+      <span class="item">
+        <a routerLink="/transaction" routerLinkActive="selected">betalen</a>
+      </span>
+    </nav>
+  </div>
+  <mat-form-field appearance="fill">
+    <mat-label>Actieve gebruiker</mat-label>
+    <mat-select
+      (selectionChange)="setCurrentUser($event.value)"
+      [(value)]="userId"
+    >
+      <mat-option *ngFor="let user of allUsers" [value]="user._id">
+        {{ user.initials }} {{ user.lastname }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="hero">
+  <img src="/assets/images/hero.jpg" alt="hero" />
+</div>

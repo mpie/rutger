@@ -1,0 +1,3 @@
+<app-header [userId]="userId" (updateUserId)="setUserId($event)"></app-header>
+
+<router-outlet *ngIf="userId"></router-outlet>

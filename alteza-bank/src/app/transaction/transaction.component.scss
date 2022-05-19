@@ -1,0 +1,20 @@
+$alteza-green: #9dd40d;
+$alteza-gray-variant-1: #414141;
+$alteza-gray-variant-2: #555555;
+$alteza-gray-variant-3: #d2d2d2;
+
+.container {
+  width: 1600px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+.transactions {
+  display: flex;
+  background-color: #e3e3e3;
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}

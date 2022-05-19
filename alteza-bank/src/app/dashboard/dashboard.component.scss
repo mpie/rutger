@@ -1,0 +1,61 @@
+$alteza-green: #9dd40d;
+$alteza-gray-variant-1: #414141;
+$alteza-gray-variant-2: #555555;
+$alteza-gray-variant-3: #d2d2d2;
+
+.container {
+  width: 1600px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+.dashboard {
+  display: flex;
+  background-color: #e3e3e3;
+  padding: 50px 20px;
+  flex-wrap: wrap;
+  gap: 40px;
+  .accounts-container,
+  .account-data-container {
+    flex: 1;
+    h3 {
+      color: $alteza-gray-variant-1;
+      text-transform: uppercase;
+      font: 500 16px "Roboto", sans-serif;
+      margin: 0 0 10px 0;
+      padding: 0;
+    }
+  }
+  .accounts-container {
+    .account-info {
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background-color: $alteza-green;
+      border-radius: 0 10em 10em 0;
+      padding: 10px;
+      .account {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 5px;
+        .account-title {
+          font: 900 16px "Roboto", sans-serif;
+          color: white;
+          display: block;
+          padding-bottom: 3px;
+        }
+        .account-number {
+          font: 500 14px "Roboto", sans-serif;
+          color: $alteza-gray-variant-1;
+        }
+      }
+    }
+  }
+  .account-data-container {
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
